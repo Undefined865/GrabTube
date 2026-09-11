@@ -1,0 +1,14 @@
+services:
+  grabtube:
+    build: .
+    container_name: grabtube
+    ports:
+      - "8000:8000"
+    volumes:
+      - grabtube-data:/data
+    environment:
+      - GRABTUBE_CONCURRENCY=4
+    restart: unless-stopped
+
+volumes:
+  grabtube-data:
